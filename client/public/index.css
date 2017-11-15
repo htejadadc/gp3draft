@@ -1,0 +1,29 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("fieldbackground.jpg");
+  position: relative;
+  padding-bottom: 36px;
+  margin: 0 !important;
+  min-height: 100%;
+}
+
+#footer {
+  text-align: center;
+  font-family: 'Alfa Slab One', cursive;
+  color: rgba(6, 58, 152, 1);
+  background: #FFFFFF;
+  height: 26px;
+  position: absolute;
+  padding: 3px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#footer span {
+  text-align: center;
+}

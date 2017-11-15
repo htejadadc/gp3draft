@@ -1,0 +1,138 @@
+.container {
+ margin: 10px 0 0 10px;
+ width: 1320px;
+ padding: 0;
+}
+
+.players-table {
+  font-family: 'Alfa Slab One', cursive;
+  color: rgba(6, 58, 152, 1) !important;
+}
+
+.myTeam-players {
+  width: 660px;
+  font-size: 10px;
+  margin: 20px 20px;
+  padding: 10px;
+  background-color: white;
+}
+
+.myTeam-players h4 {
+  color: rgba(6, 58, 152, 1);
+  margin-top: 0;
+}
+
+.InjuryFeed h4 {
+  color: rgba(6, 58, 152, 1);
+  margin-top: 0;
+}
+
+.rankings-table {
+  width: 620px;
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 10px;
+  color: rgba(6, 58, 152, 1) !important;
+  margin: 10px;
+  background-color: white;
+  padding: 10px;
+  float: left;
+}
+
+.rankings-table h4 {
+  margin-top: 0;
+}
+
+#position-rankings {
+  width: 640px;
+  float: left;
+}
+
+#myTeam-data {
+  float: left;
+}
+
+.injuries-table {
+  width: 800px;
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 10px;
+  color: rgba(6, 58, 152, 1) !important;
+  margin: 20px 20px;
+  background-color: white;
+  padding: 10px;
+}
+
+.TwitterFeed {
+  width: 800px;
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 10px;
+  color: rgba(6, 58, 152, 1) !important;
+  margin: 20px 20px;
+  background-color: white;
+  padding: 10px;
+}
+
+.TwitterFeed h4 {
+  color: rgba(6, 58, 152, 1);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.TwitterFeed h5 {
+  color: rgba(6, 58, 152, 1);
+  margin-bottom: 5px;
+}
+
+.TwitterFeed ol {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 10px !important;
+  color: cadetblue;
+  font-family: Arial;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle !important;
+  color: steelblue;
+}
+
+tr {
+  height: 30px;
+}
+
+input {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 12px;
+  padding-left: 10px;
+  color: black;
+  height: 25px !important;
+  background-color: #f2f2f2 !important;
+}
+
+input::placeholder {
+  color: dimgrey;
+  font-family: Arial;
+  font-size: 12px;
+}
+
+#SBAdd-button {
+  margin-left: 10px;
+  border-top: 2px;
+  height: 25px;
+}
+
+#SBSubmit-button {
+  height: 25px;
+}
+
+.Tweets-button {
+  height: 25px;
+}
