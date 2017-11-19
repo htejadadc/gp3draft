@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.use(express.static('./client/src/components'));
+app.use(express.static('./client/build'));
 
 // For Passport
 app.use(session({
