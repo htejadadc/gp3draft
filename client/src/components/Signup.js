@@ -22,6 +22,7 @@ class SignupComponent extends React.Component {
   attemptSignup = () => {
 
     const {firstname, lastname, email, password} = this.state;
+    console.log("Attemp to sign up started");
     axios.post('/signup', {
       firstname,
       lastname,
@@ -33,10 +34,10 @@ class SignupComponent extends React.Component {
         });
         this.props.onSuccess(response.email);
         this.props.history.push('/welcome');
+        console.log("Sign up Successful");
     }).catch(response => {
-      this.setState({
-        signupFail: true
-      })
+      this.setState({signupFail: true });
+      console.log("Sign up Failed somehow");
     })
   }
 
