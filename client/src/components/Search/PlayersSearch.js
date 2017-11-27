@@ -26,7 +26,8 @@ class PlayersSearch extends Component {
         const playersData = [];
         const apishortcut = res.data.cumulativeplayerstats.playerstatsentry;
         for (const i of apishortcut) {
-          if (i.player.Position === "QB" || "RB" || "WR" || "TE") {
+          if ((i.player.Position === "QB") || (i.player.Position === "RB") ||
+          (i.player.Position === "WR") || (i.player.Position === "TE")) {
             let fullName = i.player.FirstName + " " + i.player.LastName;
             let position = i.player.Position;
             let teamName = i.team.Name;
