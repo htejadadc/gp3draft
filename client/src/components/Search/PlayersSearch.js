@@ -16,32 +16,76 @@ class PlayersSearch extends Component {
   };
 
   componentDidMount() {
-    this.loadNFLFeeds();
-    this.loadSportFeeds();
+    this.loadSportFeedstats();
   }
 
-  loadNFLFeeds = () => {
-    API.getPlayersList()
-      .then(res => {
-        const onlyNames = res.data.players.reduce((item, i) =>
-        {return [...item, i.name]}, ["Players"]);
-        store.dispatch(loadAddPlayer({
-          playersNames: onlyNames,
-          playersStats: res.data.players
-        }))})
-      .catch(err => console.log(err));
-  }
-
-  loadSportFeeds = () => {
+  loadSportFeedstats = () => {
     API.getSportsFeeds()
       .then(function (res) {
         console.log(res.data);
+        const playersData = [];
+        const apishortcut = res.data.cumulativeplayerstats.playerstatsentry;
+        for (const i of apishortcut) {
+          if (i.player.Position === "QB" || "RB" || "WR" || "TE") {
+            let fullName = i.player.FirstName + " " + i.player.LastName;
+            let position = i.player.Position;
+            let teamName = i.team.Name;
+            let teamAbbr = i.team.Abbreviation;
+            let passYDPoints = parseFloat(i.stats.PassYards["#text"]) / 25;
+            let passTDPoints = parseFloat(i.stats.PassTD["#text"]) * 4;
+            let interceptionsPoints = parseFloat(i.stats.Interceptions["#text"]) * -2;
+            let rushYDPoints = parseFloat(i.stats.RushYards["#text"]) / 10;
+            let rushTDPoints = parseFloat(i.stats.RushTD["#text"]) * 6;
+            let recYDPoints = parseFloat(i.stats.RecYards["#text"]) / 10;
+            let recTDPoints = parseFloat(i.stats.RecTD["#text"]) * 6;
+            let fumTDPoints = parseFloat(i.stats.FumTD["#text"]) * 6;
+            let twoPtMadePoints = parseFloat(i.stats.TwoPtMade["#text"]) * 2;
+            let fumLostPoints = parseFloat(i.stats.FumLost["#text"]) * -2;
+            let seasonPoints = passYDPoints + passTDPoints + interceptionsPoints + rushYDPoints +
+              rushTDPoints + recYDPoints + recTDPoints + FumTDPoints + TwoPtMadePoints + FumLostPoints;
+            playersData.push({
+              name: fullName,
+              position: position,
+              teamName: teamName,
+              teamAbbr: teamAbbr,
+              seasonPoints: seasonPoints
+            });
+          } else if (i.player.Position === "K") {
+            let fullName = i.player.FirstName + " " + i.player.LastName;
+            let position = i.player.Position;
+            let teamName = i.team.Name;
+            let teamAbbr = i.team.Abbreviation;
+            let fgMade1_19Points = parseFloat(i.stats.FgMade1_19["#text"]) * 3;
+            let fgMade20_29Points = parseFloat(i.stats.FgMade20_29["#text"]) * 3;
+            let fgMade30_39Points = parseFloat(i.stats.FgMade30_39["#text"]) * 3;
+            let fgMade40_49Points = parseFloat(i.stats.FgMade40_49["#text"]) * 3;
+            let fgMade50PlusPoints = parseFloat(i.stats.FgMade50Plus["#text"]) * 5;
+            let xpMadePoints = parseFloat(i.stats.XpMade["#text"]);
+            let seasonPoints = fgMade1_19Points + fgMade20_29Points + fgMade30_39Points + fgMade40_49Points +
+              fgMade50PlusPoints + xpMadePoints;
+            playersData.push({
+              name: fullName,
+              position: position,
+              teamName: teamName,
+              teamAbbr: teamAbbr,
+              seasonPoints: seasonPoints
+            });
+          }
+        };
+
+        const onlyNames = playersData.reduce((item, i) =>
+        {return [...item, i.name]}, ["Players"]);
+        store.dispatch(loadAddPlayer({
+          playersNames: onlyNames,
+          playersStats: playersData })
+        );
+
         const QBconsolidatedStats = [];
         const RBconsolidatedStats = [];
         const WRconsolidatedStats = [];
         const TEconsolidatedStats = [];
         const KconsolidatedStats = [];
-        const apishortcut = res.data.cumulativeplayerstats.playerstatsentry;
+
         const QBacks = apishortcut.filter( i => {
           return i.player.Position === "QB"
         });

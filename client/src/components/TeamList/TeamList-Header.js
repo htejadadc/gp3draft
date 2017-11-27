@@ -8,9 +8,8 @@ const TeamListHeader = props => {
         <th>PLAYER</th>
         <th>POSITION</th>
         <th>TEAM</th>
+        <th>TEAM ABBR</th>
         <th>SEASON PTS</th>
-        <th>SEASON PROJECTED PTS</th>
-        <th>WEEK PROJECTED PTS</th>
         <th>ACTION</th>
       </tr>
     </thead>
