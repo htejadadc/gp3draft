@@ -42,7 +42,7 @@ class PlayersSearch extends Component {
             let twoPtMadePoints = parseFloat(i.stats.TwoPtMade["#text"]) * 2;
             let fumLostPoints = parseFloat(i.stats.FumLost["#text"]) * -2;
             let seasonPoints = passYDPoints + passTDPoints + interceptionsPoints + rushYDPoints +
-              rushTDPoints + recYDPoints + recTDPoints + FumTDPoints + TwoPtMadePoints + FumLostPoints;
+              rushTDPoints + recYDPoints + recTDPoints + fumTDPoints + twoPtMadePoints + fumLostPoints;
             playersData.push({
               name: fullName,
               position: position,
