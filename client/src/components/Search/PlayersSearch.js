@@ -31,6 +31,8 @@ class PlayersSearch extends Component {
             let position = i.player.Position;
             let teamName = i.team.Name;
             let teamAbbr = i.team.Abbreviation;
+            console.log(i.stats.PassYards["#text"]);
+            console.log(parseFloat(i.stats.PassYards["#text"]));
             let passYDPoints = parseFloat(i.stats.PassYards["#text"]) / 25;
             let passTDPoints = parseFloat(i.stats.PassTD["#text"]) * 4;
             let interceptionsPoints = parseFloat(i.stats.Interceptions["#text"]) * -2;
