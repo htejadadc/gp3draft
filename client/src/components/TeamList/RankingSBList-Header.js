@@ -10,7 +10,6 @@ const RankingSBListHeader = props => {
         <th>TEAM</th>
         <th>TEAM ABBR</th>
         <th>SEASON PTS</th>
-        <th>ACTION</th>
       </tr>
     </thead>
   );
