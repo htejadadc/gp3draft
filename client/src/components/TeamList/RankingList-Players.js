@@ -16,7 +16,7 @@ class RankingListPlayers extends React.Component {
       this.props.teamData.receptions,
       this.props.teamData.recYD,
       this.props.teamData.recTD,
-      this.props.teamData.Pts
+      (this.props.teamData.Pts).toFixed(2)
     ];
 
     return(

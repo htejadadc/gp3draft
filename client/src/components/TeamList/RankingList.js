@@ -21,7 +21,6 @@ class RankingList extends React.Component {
       finalTopStats[z].Pts = topObjStats[z].seasonPts;
     }
 
-    console.log(finalTopStats);
     return finalTopStats.map((player, index) =>
       <RankingListPlayers key={index}
         teamData={player}

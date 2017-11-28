@@ -9,7 +9,7 @@ class RankingKListPlayers extends React.Component {
       this.props.teamData.f30Pct,
       this.props.teamData.f40Pct,
       this.props.teamData.f50Pct,
-      this.props.teamData.fandxPts
+      (this.props.teamData.Pts).toFixed(2)
     ];
 
     return(

@@ -57,6 +57,8 @@ class PlayerRankings extends React.Component {
               <h4>KICKERS</h4>
               <RankingKList
                 teamPlayers={this.props.KFeedStats}
+                allPlayersnfl={this.props.playersStats}
+                markedPosition={this.props.KFeedStats[0].position}
               />
             </div>
           </div>
