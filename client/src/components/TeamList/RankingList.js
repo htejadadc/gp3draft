@@ -9,7 +9,7 @@ class RankingList extends React.Component {
       return i.position === this.props.markedPosition;
     });
     const topObjList = positionStatsOnly.sort(function (a, b) {
-      return b.seasonPts - a.seasonPts;
+      return b.seasonPoints - a.seasonPoints;
     });
     const topObjStats = topObjList.slice(0, 10);
 
@@ -18,7 +18,7 @@ class RankingList extends React.Component {
         return i.name === topObjStats[z].name;
       })
       finalTopStats.push(sortingPlayers);
-      finalTopStats[z].Pts = topObjStats[z].seasonPts;
+      finalTopStats[z].Pts = topObjStats[z].seasonPoints;
     }
 
     return finalTopStats.map((player, index) =>
