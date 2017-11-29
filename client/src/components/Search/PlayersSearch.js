@@ -32,11 +32,9 @@ class PlayersSearch extends Component {
             let position = i.player.Position;
             let teamName = i.team.Name;
             let teamAbbr = i.team.Abbreviation;
-            console.log(i.stats.PassYards["#text"]);
-            console.log(parseFloat(i.stats.PassYards["#text"]));
             let passYDPoints = parseFloat(i.stats.PassYards["#text"]) / 25;
             let passTDPoints = parseFloat(i.stats.PassTD["#text"]) * 4;
-            let interceptionsPoints = parseFloat(i.stats.Interceptions["#text"]) * -2;
+            let passIntPoints = parseFloat(i.stats.PassInt["#text"]) * -2;
             let rushYDPoints = parseFloat(i.stats.RushYards["#text"]) / 10;
             let rushTDPoints = parseFloat(i.stats.RushTD["#text"]) * 6;
             let recYDPoints = parseFloat(i.stats.RecYards["#text"]) / 10;
@@ -44,7 +42,7 @@ class PlayersSearch extends Component {
             let fumTDPoints = parseFloat(i.stats.FumTD["#text"]) * 6;
             let twoPtMadePoints = parseFloat(i.stats.TwoPtMade["#text"]) * 2;
             let fumLostPoints = parseFloat(i.stats.FumLost["#text"]) * -2;
-            let seasonPoints = passYDPoints + passTDPoints + interceptionsPoints + rushYDPoints +
+            let seasonPoints = passYDPoints + passTDPoints + passIntPoints + rushYDPoints +
               rushTDPoints + recYDPoints + recTDPoints + fumTDPoints + twoPtMadePoints + fumLostPoints;
             playersData.push({
               name: fullName,
