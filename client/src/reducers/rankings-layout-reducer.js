@@ -11,12 +11,13 @@ const initialState = {
   KFeedStats: [],
   starterPlayers: [],
   benchPlayers: [],
+  playersInjuries: [],
   payloadContainer: {}
 };
 
 const rankingsLayoutReducer = (state = initialState, action) => {
   switch(action.type) {
-    case "LOAD_ADD_PLAYER":    
+    case "LOAD_ADD_PLAYER":
       return Object.assign({}, state, action.payload);
     default:
       return state;

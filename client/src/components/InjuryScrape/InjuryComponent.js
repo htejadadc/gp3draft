@@ -1,36 +1,18 @@
-import axios from 'axios';
+import React, {Component} from 'react';
 import Container from "../Container/Container";
 import InjuriesList from "../TeamList/InjuriesList";
-import React, {Component} from 'react';
+import { connect } from "react-redux";
 
 class InjuryComponent extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      injuries: []
-    }
-  }
-
-  componentDidMount()  {
-    axios.get('/scrape')
-      .then(res => {
-        console.log('yo yo yo ');
-        this.setState({
-          injuries: res.data
-        });
-      });
-  }
-
   render () {
-
-    console.log(this.state.injuries)
+    console.log(this.props.playersInjuries)
     return (
       <Container className="injuries-table" >
         <div className='InjuryFeed'>
           <h4>CURRENT INJURIES FOR WEEK 9</h4>
           <InjuriesList
-            injuredPlayers={this.state.injuries}
+            injuredPlayers={this.props.playersInjuries}
           />
         </div>
       </Container>
@@ -38,4 +20,10 @@ class InjuryComponent extends React.Component {
   }
 }
 
-export default InjuryComponent
+function mapStateToProps(state) {
+  return {
+    playersInjuries: state.playersInjuries
+  }
+};
+
+export default connect(mapStateToProps)(InjuryComponent);
